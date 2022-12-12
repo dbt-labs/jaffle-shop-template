@@ -6,7 +6,7 @@ def model(dbt, session):
     # set length of time considered a churn
     churn_span = pd.Timedelta(days=2)
 
-    dbt.config(materialized="table", packages=["pandas==1.5.2"])
+    dbt.config(enabled=False, materialized="table", packages=["pandas==1.5.2"])
 
     orders_relation = dbt.ref("stg_orders")
 
