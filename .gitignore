@@ -1,0 +1,6 @@
+.venv
+target/
+dbt_packages/
+logs/
+jaffle_shop_database.duckdb
+jaffle_shop_database.duckdb.wal
