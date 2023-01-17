@@ -14,7 +14,7 @@ profile: "duckdb"
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
-seed-paths: ["data"]
+seed-paths: ["seeds", "jaffle-data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
