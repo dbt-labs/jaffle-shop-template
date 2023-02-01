@@ -1,0 +1,66 @@
+,id,name,cost,perishable,sku
+0,SUP-001,compostable cutlery - knife,7,False,JAF-001
+1,SUP-002,cutlery - fork,7,False,JAF-001
+2,SUP-003,serving boat,11,False,JAF-001
+3,SUP-004,napkin,4,False,JAF-001
+4,SUP-009,bread,33,True,JAF-001
+5,SUP-011,nutella,46,True,JAF-001
+6,SUP-012,banana,13,True,JAF-001
+7,SUP-001,compostable cutlery - knife,7,False,JAF-002
+8,SUP-002,cutlery - fork,7,False,JAF-002
+9,SUP-003,serving boat,11,False,JAF-002
+10,SUP-004,napkin,4,False,JAF-002
+11,SUP-009,bread,33,True,JAF-002
+12,SUP-010,cheese,20,True,JAF-002
+13,SUP-013,beef stew,169,True,JAF-002
+14,SUP-001,compostable cutlery - knife,7,False,JAF-003
+15,SUP-002,cutlery - fork,7,False,JAF-003
+16,SUP-003,serving boat,11,False,JAF-003
+17,SUP-004,napkin,4,False,JAF-003
+18,SUP-009,bread,33,True,JAF-003
+19,SUP-010,cheese,20,True,JAF-003
+20,SUP-014,lamb and pork bratwurst,234,True,JAF-003
+21,SUP-015,house-pickled cabbage sauerkraut,43,True,JAF-003
+22,SUP-016,mustard,7,True,JAF-003
+23,SUP-001,compostable cutlery - knife,7,False,JAF-004
+24,SUP-002,cutlery - fork,7,False,JAF-004
+25,SUP-003,serving boat,11,False,JAF-004
+26,SUP-004,napkin,4,False,JAF-004
+27,SUP-009,bread,33,True,JAF-004
+28,SUP-010,cheese,20,True,JAF-004
+29,SUP-017,pulled pork,215,True,JAF-004
+30,SUP-018,pineapple,26,True,JAF-004
+31,SUP-021,ghost pepper sauce,20,True,JAF-004
+32,SUP-001,compostable cutlery - knife,7,False,JAF-005
+33,SUP-002,cutlery - fork,7,False,JAF-005
+34,SUP-003,serving boat,11,False,JAF-005
+35,SUP-004,napkin,4,False,JAF-005
+36,SUP-009,bread,33,True,JAF-005
+37,SUP-010,cheese,20,True,JAF-005
+38,SUP-019,melon,33,True,JAF-005
+39,SUP-020,minced beef,124,True,JAF-005
+40,SUP-005,16oz compostable clear cup,13,False,BEV-001
+41,SUP-006,16oz compostable clear lid,4,False,BEV-001
+42,SUP-007,biodegradable straw,13,False,BEV-001
+43,SUP-022,mango,32,True,BEV-001
+44,SUP-023,tangerine,20,True,BEV-001
+45,SUP-005,16oz compostable clear cup,13,False,BEV-002
+46,SUP-006,16oz compostable clear lid,4,False,BEV-002
+47,SUP-007,biodegradable straw,13,False,BEV-002
+48,SUP-008,chai mix,98,True,BEV-002
+49,SUP-024,oatmilk,11,True,BEV-002
+50,SUP-025,whey protein,36,True,BEV-002
+51,SUP-005,16oz compostable clear cup,13,False,BEV-003
+52,SUP-006,16oz compostable clear lid,4,False,BEV-003
+53,SUP-007,biodegradable straw,13,False,BEV-003
+54,SUP-026,coffee,52,True,BEV-003
+55,SUP-027,french vanilla syrup,72,True,BEV-003
+56,SUP-005,16oz compostable clear cup,13,False,BEV-004
+57,SUP-006,16oz compostable clear lid,4,False,BEV-004
+58,SUP-007,biodegradable straw,13,False,BEV-004
+59,SUP-026,coffee,52,True,BEV-004
+60,SUP-005,16oz compostable clear cup,13,False,BEV-005
+61,SUP-006,16oz compostable clear lid,4,False,BEV-005
+62,SUP-007,biodegradable straw,13,False,BEV-005
+63,SUP-028,kiwi,20,True,BEV-005
+64,SUP-029,lime,13,True,BEV-005
