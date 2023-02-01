@@ -3,4 +3,5 @@ duckdb:
     dev:
       type: duckdb
       path: ./jaffle_shop_database.duckdb
+      threads: 4
   target: dev
