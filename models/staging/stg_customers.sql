@@ -1,5 +1,4 @@
-
-with 
+with
 
 source as (
 

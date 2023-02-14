@@ -1,3 +1,4 @@
 {
-    "dbt.queryLimit": 500
+  "dbt.queryLimit": 500,
+  "python.analysis.typeCheckingMode": "basic"
 }
