@@ -3,9 +3,10 @@ version: 2
 sources:
   - name: ecom
     description: E-commerce data
-    database: analytics
     schema: "{{target.schema}}_raw"
-    loader: manual
+    # loader: manual
+    meta:
+      external_location: "./jaffle-data/{name}.csv"
 
     tables:
       - name: raw_customers

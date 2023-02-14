@@ -18,14 +18,14 @@ orders_set as (
 
     select * from {{ ref('stg_orders') }}
 
-    where 
+    where
         true
-    
-    {% if is_incremental() %}
-        
-        and ordered_at >= (select max(ordered_at) from {{ this }})
-    
-    {% endif %}
+
+        {% if is_incremental() %}
+
+            and ordered_at >= (select max(ordered_at) from {{ this }})
+
+        {% endif %}
 
 ),
 
@@ -57,18 +57,27 @@ order_items_summary as (
 
     select
 
-        order_id,
+        order_items.order_id,
 
         sum(products.is_food_item) as count_food_items,
         sum(products.is_drink_item) as count_drink_items,
         count(*) as count_items,
-
-        sum(case when products.is_food_item = 1 then product_price else 0 end) as subtotal_drink_items,
-        sum(case when products.is_drink_item = 1 then product_price else 0 end) as subtotal_food_items,
-        sum(product_price) as subtotal
+        sum(
+            case
+                when products.is_food_item = 1 then products.product_price
+                else 0
+            end
+        ) as subtotal_drink_items,
+        sum(
+            case
+                when products.is_drink_item = 1 then products.product_price
+                else 0
+            end
+        ) as subtotal_food_items,
+        sum(products.product_price) as subtotal
 
     from order_items
-    
+
     left join products on order_items.product_id = products.product_id
 
     group by 1
@@ -79,12 +88,12 @@ order_supplies_summary as (
 
     select
 
-        order_id,
+        order_items.order_id,
 
         sum(supplies.supply_cost) as order_cost
 
     from order_items
-    
+
     left join supplies on order_items.product_id = supplies.product_id
 
     group by 1
@@ -121,8 +130,8 @@ joined as (
 
 final as (
 
-    select 
-        
+    select
+
         *,
         count_food_items > 0 as is_food_order,
         count_drink_items > 0 as is_drink_order

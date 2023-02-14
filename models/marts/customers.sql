@@ -1,4 +1,3 @@
-
 with
 
 customers as (
@@ -47,7 +46,7 @@ joined as (
         end as customer_type
 
     from customers
-    
+
     left join order_summary
         on customers.customer_id = order_summary.customer_id
 
