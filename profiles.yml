@@ -5,5 +5,5 @@ duckdb:
       path: ./reports/jaffle_shop.duckdb
       threads: 4
       database: jaffle_shop
-      schema: beepboop
+      schema: analytics
   target: dev

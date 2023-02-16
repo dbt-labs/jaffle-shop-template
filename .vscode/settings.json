@@ -1,5 +1,12 @@
 {
   "dbt.queryLimit": 500,
   "python.analysis.typeCheckingMode": "basic",
-  "editor.defaultFormatter": "trunk.io"
+  "sqlfluff.dialect": "sqlite",
+  "sqlfluff.executablePath": ".venv/bin/sqlfluff",
+  "python.defaultInterpreterPath": ".venv/bin/python",
+  "sqlfluff.experimental.format.executeInTerminal": true,
+  "[jinja-sql]": {
+    "editor.defaultFormatter": "dorzey.vscode-sqlfluff",
+    "editor.formatOnSave": false
+  }
 }

@@ -1,15 +1,15 @@
 {
   "recommendations": [
-    "trunk.io",
-    "innoverio.vscode-dbt-power-user",
+    "esbenp.prettier-vscode",
+    "bungcip.better-toml",
     "ms-python.black-formatter",
     "ms-python.isort",
     "ms-python.vscode-pylance",
     "charliermarsh.ruff",
     "samuelcolvin.jinjahtml",
+    "mechatroner.rainbow-csv",
     "bastienboutonnet.vscode-dbt",
     "innoverio.vscode-dbt-power-user",
-    "mechatroner.rainbow-csv"
   ],
   "unwantedRecommendations": []
 }

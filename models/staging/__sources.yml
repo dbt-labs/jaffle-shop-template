@@ -2,11 +2,10 @@ version: 2
 
 sources:
   - name: ecom
-    description: E-commerce data
     schema: "{{target.schema}}_raw"
-    # loader: manual
+    description: E-commerce data
     meta:
-      external_location: "./jaffle-data/{name}.csv"
+      external_location: "read_csv_auto('./jaffle-data/{name}.csv', header=1)"
 
     tables:
       - name: raw_customers
