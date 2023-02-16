@@ -2,6 +2,7 @@
   "recommendations": [
     "GitHub.codespaces",
     "GitHub.vscode-pull-request-github",
+    "esbenp.prettier-vscode",
     "ms-python.python",
     "ms-python.vscode-pylance",
     "ms-python.black-formatter",
@@ -9,8 +10,10 @@
     "charliermarsh.ruff",
     "redhat.vscode-yaml",
     "samuelcolvin.jinjahtml",
-    "mechatroner.rainbow-csv",
+    "bungcip.better-toml",
+    "tamasfe.even-better-toml",
     "dorzey.vscode-sqlfluff",
+    "mechatroner.rainbow-csv",
     "bastienboutonnet.vscode-dbt",
     "innoverio.vscode-dbt-power-user"
   ],
