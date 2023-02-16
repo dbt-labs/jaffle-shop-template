@@ -1,4 +1,5 @@
 {
   "dbt.queryLimit": 500,
-  "python.analysis.typeCheckingMode": "basic"
+  "python.analysis.typeCheckingMode": "basic",
+  "editor.defaultFormatter": "trunk.io"
 }

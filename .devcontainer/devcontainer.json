@@ -21,6 +21,7 @@
         "ms-python.vscode-pylance",
         "ms-python.black-formatter",
         "ms-python.isort",
+        "charliermarsh.ruff",
         "redhat.vscode-yaml",
         "samuelcolvin.jinjahtml",
         "bastienboutonnet.vscode-dbt",

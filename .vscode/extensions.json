@@ -1,13 +1,15 @@
 {
-	// See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
-	// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
-
-	// List of extensions which should be recommended for users of this workspace.
-	"recommendations": [
-		
-	],
-	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
-	"unwantedRecommendations": [
-		
-	]
+  "recommendations": [
+    "trunk.io",
+    "innoverio.vscode-dbt-power-user",
+    "ms-python.black-formatter",
+    "ms-python.isort",
+    "ms-python.vscode-pylance",
+    "charliermarsh.ruff",
+    "samuelcolvin.jinjahtml",
+    "bastienboutonnet.vscode-dbt",
+    "innoverio.vscode-dbt-power-user",
+    "mechatroner.rainbow-csv"
+  ],
+  "unwantedRecommendations": []
 }
