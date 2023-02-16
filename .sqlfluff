@@ -2,9 +2,9 @@
 dialect = snowflake
 templater = dbt
 runaway_limit = 10
-rules = L002, L004, L005, L010, L011, L012, L013, L014, L016, L018, L019, L022, L023, L027, L030, L031, L032, L033, L034, L040, L046, L048, L042, L051, L054, L065
 max_line_length = 80
 indent_unit = space
+rules = L002, L004, L005, L010, L011, L012, L013, L014, L016, L018, L019, L022, L023, L027, L030, L031, L032, L033, L034, L040, L046, L048, L042, L051, L054, L065
 
 # Rule definitions:
 # L002: Mixed Tabs and Spaces in single whitespace
@@ -33,8 +33,6 @@ indent_unit = space
 # L051: Join clauses should be fully qualified (LEFT/RIGHT/FULL/INNER)
 # L054: Use numbers in GROUP BY and ORDER BY
 # L065: Set operators should be surrounded by newlines.
-
-
 
 [sqlfluff:indentation]
 tab_space_size = 4
