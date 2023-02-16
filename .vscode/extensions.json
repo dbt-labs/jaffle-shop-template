@@ -1,15 +1,18 @@
 {
   "recommendations": [
-    "esbenp.prettier-vscode",
-    "bungcip.better-toml",
+    "GitHub.codespaces",
+    "GitHub.vscode-pull-request-github",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
     "ms-python.black-formatter",
     "ms-python.isort",
-    "ms-python.vscode-pylance",
     "charliermarsh.ruff",
+    "redhat.vscode-yaml",
     "samuelcolvin.jinjahtml",
     "mechatroner.rainbow-csv",
+    "dorzey.vscode-sqlfluff",
     "bastienboutonnet.vscode-dbt",
-    "innoverio.vscode-dbt-power-user",
+    "innoverio.vscode-dbt-power-user"
   ],
   "unwantedRecommendations": []
 }
