@@ -1,3 +1,13 @@
+{{ 
+    config(
+        materialized='external', 
+        location='reports/models/customers.csv',
+        delimiter=',',
+        format='csv'
+    )
+    
+}}
+
 with
 
 customers as (
@@ -7,7 +17,6 @@ customers as (
 ),
 
 orders_mart as (
-
     select * from {{ ref('orders') }}
 
 ),
