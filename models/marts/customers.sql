@@ -1,11 +1,11 @@
-{{ 
+{{
     config(
-        materialized='external', 
+        materialized='external',
         location='reports/sources/customers.csv',
         delimiter=',',
         format='csv'
     )
-    
+
 }}
 
 with

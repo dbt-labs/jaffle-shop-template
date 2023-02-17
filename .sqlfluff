@@ -22,8 +22,8 @@ rules = L002, L004, L005, L010, L011, L012, L013, L014, L016, L018, L019, L022, 
 # L023: Single whitespace expected after AS in WITH clause.
 # L027: References should be qualified if select has more than one referenced table/view
 # L030: Inconsistent capitalisation of function names (should be lowercase)
-# L031: Avoid table aliases in from clauses and join conditions 
-# L032: Prefer specifying join keys instead of using USING. 
+# L031: Avoid table aliases in from clauses and join conditions
+# L032: Prefer specifying join keys instead of using USING.
 # L033: UNION [DISTINCT|ALL] is preferred over just UNION
 # L034: Select wildcards then simple targets before calculations and aggregates
 # L040: Inconsistent capitalisation of boolean/null literal (should be lowercase)
