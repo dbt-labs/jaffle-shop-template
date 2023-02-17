@@ -1,7 +1,7 @@
 {{ 
     config(
         materialized='external', 
-        location='reports/models/customers.csv',
+        location='reports/sources/customers.csv',
         delimiter=',',
         format='csv'
     )
