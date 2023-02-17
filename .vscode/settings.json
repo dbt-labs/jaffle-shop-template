@@ -1,5 +1,5 @@
 {
-  "dbt.queryLimit": 500,
+  "dbt.queryLimit": 100,
   "python.analysis.typeCheckingMode": "basic",
   "sqlfluff.dialect": "sqlite",
   "sqlfluff.executablePath": ".venv/bin/sqlfluff",

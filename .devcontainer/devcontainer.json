@@ -29,6 +29,8 @@
         "tamasfe.even-better-toml",
         "dorzey.vscode-sqlfluff",
         "mechatroner.rainbow-csv",
+        "evidence.evidence-vscode",
+        "svelte.svelte-vscode",
         "bastienboutonnet.vscode-dbt",
         "innoverio.vscode-dbt-power-user"
       ]

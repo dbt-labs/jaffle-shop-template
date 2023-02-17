@@ -1,7 +1,8 @@
-dbt-duckdb==1.3.4
-pandas==1.5.2
-pyarrow==10.0.1
-duckcli==0.2.1
-jafgen==0.3.1
-sqlfluff==1.4.5
-sqlfluff-templater-dbt==1.4.5
+dbt-duckdb~=1.4.0
+pandas~=1.5.2
+polars~=0.16.6
+pyarrow~=11.0.0
+duckcli~=0.2.1
+jafgen~=0.3.1
+sqlfluff~=1.4.5
+sqlfluff-templater-dbt~=1.4.5
