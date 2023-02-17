@@ -1,5 +1,5 @@
 [sqlfluff]
-dialect = snowflake
+dialect = sqlite
 templater = dbt
 runaway_limit = 10
 max_line_length = 80

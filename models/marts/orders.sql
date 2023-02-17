@@ -1,7 +1,9 @@
 {{
     config(
-        materialized = 'incremental',
-        unique_key= 'order_id'
+        materialized = 'external',
+        location='reports/sources/orders.csv',
+        format='csv'
+
     )
 }}
 

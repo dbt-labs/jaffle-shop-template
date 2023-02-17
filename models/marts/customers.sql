@@ -2,7 +2,6 @@
     config(
         materialized='external',
         location='reports/sources/customers.csv',
-        delimiter=',',
         format='csv'
     )
 
