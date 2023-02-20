@@ -4,6 +4,10 @@
 select * from 'sources/customers.csv'
 ```
 
+```orders
+select * from 'sources/orders.csv'
+```
+
 ```customers_by_first_order
 select
     date_trunc('day', first_ordered_at) as date,
@@ -16,11 +20,22 @@ group by 1
 order by 1
 ```
 
+```orders_per_day
+select
+    date_trunc('day', ordered_at) as date,
+    count(*) as orders
+
+from ${orders}
+
+group by 1
+order by 1
+```
+
 <LineChart
-    data={customers_by_first_order}
+    data={orders_per_day}
     x=date
-    y=new_customers
-    yAxistTitle="new customers per day"
+    y=orders
+    yAxistTitle="orders_per_day"
 />
 
 ```customer_cohorts
