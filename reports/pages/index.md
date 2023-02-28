@@ -1,25 +1,5 @@
 # Welcome to Jaffle Shop 🥪
 
-```customers
-select * from 'sources/customers.csv'
-```
-
-```orders
-select * from 'sources/orders.csv'
-```
-
-```customers_by_first_order
-select
-    date_trunc('day', first_ordered_at) as date,
-    count(*) as new_customers
-
-from ${customers}
-
-group by 1
-
-order by 1
-```
-
 ```orders_per_day
 select
     date_trunc('day', ordered_at) as date,
@@ -31,6 +11,8 @@ group by 1
 order by 1
 ```
 
+## Orders per day
+
 <LineChart
     data={orders_per_day}
     x=date
@@ -38,32 +20,61 @@ order by 1
     yAxistTitle="orders_per_day"
 />
 
-```customer_cohorts
+```revenue_per_city
 select
+    location_name as city,
+    sum(order_total) as revenue
+
+from ${orders}
+
+group by 1
+```
+
+## Reports on individual stores
+
+{#each revenue_per_city as revenue}
+
+[{revenue.city}](/{revenue.city})
+
+{/each}
+
+## Customer cohorts
+
+```customers_with_cohort
+select
+    *,
     date_trunc('month', first_ordered_at) as cohort_month,
-    *
+    lifetime_spend_pretax / count_lifetime_orders as average_order_value
 
 from ${customers}
 ```
 
-```cohorts_ltv
+```cohorts_aov
 select
     cohort_month,
-    avg(lifetime_spend) as ltv
+    avg(average_order_value) as cohort_aov
 
-from ${customer_cohorts}
+from ${customers_with_cohort}
 
 group by 1
 order by cohort_month
 ```
 
-## Customer LTV by first month cohort
+## Customer AOV by first month cohort
 
-We truncate our `first_order_date` to month to create a cohort, then plot their average LTV per cohort.
+We truncate our `first_order_date` to month to create a cohort, then plot their average order value per cohort.
 
 <BarChart
-    data={cohorts_ltv}
+    data={cohorts_aov}
     x=cohort_month
-    y=ltv
-    yAxisTitle="average LTV"
+    y=cohort_aov
+    yAxisTitle="average order value"
 />
+
+```customers
+select * from 'sources/customers.csv'
+```
+
+```orders
+select * from 'sources/orders.csv'
+```

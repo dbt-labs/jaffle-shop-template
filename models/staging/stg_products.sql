@@ -25,12 +25,12 @@ renamed as (
         case
             when type = 'jaffle' then 1
             else 0
-        end is_food_item,
+        end as is_food_item,
 
         case
             when type = 'beverage' then 1
             else 0
-        end is_drink_item
+        end as is_drink_item
 
     from source
 
