@@ -22,11 +22,11 @@ orders_set as (
     where
         true
 
-        {% if is_incremental() %}
+    {% if is_incremental() %}
 
-            and ordered_at >= (select max(ordered_at) from {{ this }})
+        and ordered_at >= (select max(ordered_at) from {{ this }})
 
-        {% endif %}
+    {% endif %}
 
 ),
 

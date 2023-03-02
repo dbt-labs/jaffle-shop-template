@@ -8,7 +8,7 @@ select
     date_trunc('day', ordered_at) as date,
     count(*) as orders
 
-from 'sources/orders.csv'
+from analytics.orders
 
 group by 1, 2
 order by 1, 2

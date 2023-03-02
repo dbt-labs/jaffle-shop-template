@@ -72,9 +72,9 @@ We truncate our `first_order_date` to month to create a cohort, then plot their 
 />
 
 ```customers
-select * from 'sources/customers.csv'
+select * from analytics.customers
 ```
 
 ```orders
-select * from 'sources/orders.csv'
+select * from analytics.orders
 ```
