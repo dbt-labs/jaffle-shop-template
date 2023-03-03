@@ -1,9 +1,7 @@
 {{
     config(
-        materialized = 'external',
-        location='reports/sources/orders.csv',
-        format='csv'
-
+        materialized = 'incremental',
+        unique_key = 'order_id'
     )
 }}
 
@@ -22,11 +20,11 @@ orders_set as (
     where
         true
 
-    {% if is_incremental() %}
+        {% if is_incremental() %}
 
-        and ordered_at >= (select max(ordered_at) from {{ this }})
+            and ordered_at >= (select max(ordered_at) from {{ this }})
 
-    {% endif %}
+        {% endif %}
 
 ),
 

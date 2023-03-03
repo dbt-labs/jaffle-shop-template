@@ -1,8 +1,6 @@
 {{
     config(
-        materialized='external',
-        location='reports/sources/customers.csv',
-        format='csv'
+        materialized='table'
     )
 
 }}
