@@ -4,4 +4,8 @@ This is a template for creating a fully functional dbt project for teaching, lea
 
 ## How to use
 
-Click the big green 'Use this template' button and 'Create a new repository'. Now, customize away for your use case!
+Click the big green 'Use this template' button and 'Create a new repository'.
+
+![Click use template](.github/static/use-template.gif)
+
+Now, customize away for your use case!
