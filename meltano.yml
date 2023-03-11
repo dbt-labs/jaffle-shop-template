@@ -40,7 +40,7 @@ environments:
 - name: dev
   env:
     DUCKDB_WAREHOUSE_PATH: ${MELTANO_PROJECT_ROOT}/output/dw-localdev.duckdb
-    TAP_JAFFLE_SHOP_YEARS: "2"
+    TAP_JAFFLE_SHOP_YEARS: "1"
 - name: staging
   env:
     DUCKDB_WAREHOUSE_PATH: ${MELTANO_PROJECT_ROOT}/output/dw-staging.duckdb
