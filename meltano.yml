@@ -1,7 +1,92 @@
+# Meltano Configuration File
+# 
+# One-time workstation setup:
+# > meltano install  # Install the plugins declared by the project
+#
+# Sample usage for end-to-end development:
+# > meltano run el    # Run the job titled 'el' to extract and load data
+# > meltano run t     # Run the job titled 't' to transform data
+# > meltano run bi    # Build and serve the Evidence BI reports
+#
+# Repeat the same actions as above on "prod":
+# > meltano --environment=prod run elt evidence:build
+
 project_id: bd6709c7-2d8b-4aba-9697-f6cd61582e74
 version: 1
+
+jobs:
+  # Sample usage: `meltano run el`, `meltano run t`, `meltano run el t`, `meltano run elt`
+- name: el  # Extract and load the raw data
+  tasks:
+  - tap-jaffle-shop target-duckdb
+- name: t   # Transform the raw data
+  tasks:
+  - dbt-duckdb:run
+  - dbt-duckdb:test
+- name: elt # Extract, Load, and Transform
+  tasks:
+  - tap-jaffle-shop target-duckdb
+  - dbt-duckdb:run
+  - dbt-duckdb:test
+- name: bi-dev # Build and launch the Evience.dev dev environment
+  tasks:
+  - evidence:dev
+- name: bi-test # Build BI reports and test for breakages
+  tasks:
+  - evidence:build-strict
+
 default_environment: dev
 environments:
 - name: dev
+  env:
+    DUCKDB_WAREHOUSE_PATH: ${MELTANO_PROJECT_ROOT}/output/dw-localdev.duckdb
+    TAP_JAFFLE_SHOP_YEARS: "2"
 - name: staging
+  env:
+    DUCKDB_WAREHOUSE_PATH: ${MELTANO_PROJECT_ROOT}/output/dw-staging.duckdb
+    TAP_JAFFLE_SHOP_YEARS: "3"
 - name: prod
+  env:
+    DUCKDB_WAREHOUSE_PATH: ${MELTANO_PROJECT_ROOT}/output/dw-prod.duckdb
+    TAP_JAFFLE_SHOP_YEARS: "5"
+
+plugins:
+  extractors:
+  - name: tap-jaffle-shop
+    namespace: tap_jaffle_shop
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-jaffle-shop.git@v0.1.0
+    capabilities:
+    - catalog
+    - discover
+    config:
+      years: 1
+      stream_name_prefix: raw_jaffle-
+  loaders:
+  - name: target-duckdb
+    variant: jwills
+    pip_url: target-duckdb~=0.4
+    config:
+      filepath: ${DUCKDB_WAREHOUSE_PATH}
+  - name: target-parquet
+    variant: estrategiahq
+    pip_url: git+https://github.com/estrategiahq/target-parquet.git
+  utilities:
+  - name: dbt-duckdb
+    variant: jwills
+    pip_url: dbt-core~=1.3.0 dbt-duckdb~=1.3.0 git+https://github.com/meltano/dbt-ext.git@main
+    config:
+      project_dir: .
+      profiles_dir: .
+      path: ${DUCKDB_WAREHOUSE_PATH}
+  - name: evidence
+    variant: meltanolabs
+    pip_url: evidence-ext>=0.5
+    config:
+      home_dir: ${MELTANO_PROJECT_ROOT}/reports
+      settings:
+        duckdb:
+          # filename: ${MELTANO_PROJECT_ROOT}
+          filename: output/dw-localdev.duckdb
+    commands:
+      dev: dev
