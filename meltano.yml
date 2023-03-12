@@ -47,17 +47,17 @@ environments:
   env:
     DUCKDB_WAREHOUSE_PATH: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.${MELTANO_ENVIRONMENT}.duckdb
     TAP_JAFFLE_SHOP_YEARS: "1"
-    RAW_SCHEMA_NAME: "tap_jaffle_shop"
+    JAFFLE_RAW_SCHEMA: "tap_jaffle_shop"
 - name: staging
   env:
     DUCKDB_WAREHOUSE_PATH: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.${MELTANO_ENVIRONMENT}.duckdb
     TAP_JAFFLE_SHOP_YEARS: "3"
-    RAW_SCHEMA_NAME: "tap_jaffle_shop"
+    JAFFLE_RAW_SCHEMA: "tap_jaffle_shop"
 - name: prod
   env:
     DUCKDB_WAREHOUSE_PATH: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.${MELTANO_ENVIRONMENT}.duckdb
     TAP_JAFFLE_SHOP_YEARS: "5"
-    RAW_SCHEMA_NAME: "tap_jaffle_shop"
+    JAFFLE_RAW_SCHEMA: "tap_jaffle_shop"
 
 plugins:
   extractors:
@@ -70,7 +70,7 @@ plugins:
     - discover
     config:
       years: 1
-      stream_name_prefix: ${RAW_SCHEMA_NAME}-raw_
+      stream_name_prefix: ${JAFFLE_RAW_SCHEMA}-raw_
   loaders:
   - name: target-duckdb
     variant: jwills
@@ -85,7 +85,7 @@ plugins:
     variant: jwills
     pip_url: dbt-core~=1.4.5 dbt-duckdb~=1.4.0 git+https://github.com/meltano/dbt-ext.git@v0.1.0
     env:
-      JAFFLE_RAW_SCHEMA: ${RAW_SCHEMA_NAME}
+      JAFFLE_RAW_SCHEMA: ${JAFFLE_RAW_SCHEMA}
       JAFFLE_DB_NAME: jaffle_shop
     config:
       project_dir: ${MELTANO_PROJECT_ROOT}
