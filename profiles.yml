@@ -2,8 +2,8 @@ duckdb:
   outputs:
     dev:
       type: duckdb
-      path: "{{ env_var('DBT_DUCKDB_PATH', './reports/jaffle_shop.duckdb') }}"
+      path: "{{ env_var('JAFFLE_DB_PATH', './reports/jaffle_shop.duckdb') }}"
       database: "{{ env_var('JAFFLE_DB_NAME', 'jaffle_shop') }}"
-      schema: analytics
+      schema: "{{ env_var('JAFFLE_TARGET_SCHEMA', 'analytics') }}"
       threads: 4
   target: dev
