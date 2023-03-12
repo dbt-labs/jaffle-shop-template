@@ -25,10 +25,7 @@ clean-targets: # directories to be removed by `dbt clean`
 
 vars:
   truncate_timespan_to: "{{ current_timestamp() }}"
-  jaffle_db_name: "{{ env_var('JAFFLE_DB_NAME', 'jaffle_shop'}}) }}"
-  jaffle_db_path: "{{ env_var('JAFFLE_DB_PATH', './reports/jaffle_shop.duckdb') }}"
   jaffle_raw_schema: "{{ env_var('JAFFLE_RAW_SCHEMA', 'jaffle_raw'}}) }}"
-  jaffle_target_schema: "{{ env_var('JAFFLE_TARGET_SCHEMA', 'analytics'}}) }}"
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
