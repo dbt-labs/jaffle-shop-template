@@ -1,6 +1,5 @@
 packages:
   - package: dbt-labs/metrics
-    # version: 1.4.0
-    version: 1.3.1  # TODO: Bump version when available.
+    version: 1.4.0
   - package: dbt-labs/dbt_utils
     version: 1.0.0
