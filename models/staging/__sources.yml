@@ -2,8 +2,9 @@ version: 2
 
 sources:
   - name: ecom
-    schema: tap_jaffle_shop
+    # TODO: Debug var not mapping correctly
     # schema: "{{ var('jaffle_raw_schema') }}"
+    schema: tap_jaffle_shop
     description: E-commerce data
     # Uncomment these lines if you want to use the pregenerated seed files:
     # meta:
