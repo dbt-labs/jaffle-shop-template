@@ -16,24 +16,30 @@ version: 1
 
 jobs:
   # Sample usage: `meltano run el`, `meltano run t`, `meltano run el t`, `meltano run elt`
-- name: el  # Extract and load the raw data
+- name: el         # Extract and load the raw data
   tasks:
   - tap-jaffle-shop target-duckdb
-- name: t        # Transform the raw data
+- name: t          # Transform the raw data
   tasks:
   - dbt-duckdb:run
   - dbt-duckdb:test
-- name: elt      # Extract, Load, and Transform
+- name: elt        # Extract, Load, and Transform
   tasks:
   - tap-jaffle-shop target-duckdb
   - dbt-duckdb:run
   - dbt-duckdb:test
-- name: bi       # Launch the Evidence BI dev environment
+- name: bi         # Launch the Evidence BI dev environment
   tasks:
   - evidence:dev
-- name: bi-build # Build BI reports and test for breakages
+- name: bi-compile # Build BI reports and test for breakages
   tasks:
   - evidence:build-strict
+- name: full-build # End-to-end build and test
+  tasks:
+  - tap-jaffle-shop target-duckdb
+  - dbt-duckdb:run
+  - dbt-duckdb:test
+  - evidence:build
 
 default_environment: dev
 environments:
