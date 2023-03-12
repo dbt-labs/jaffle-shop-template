@@ -19,19 +19,19 @@ jobs:
 - name: el  # Extract and load the raw data
   tasks:
   - tap-jaffle-shop target-duckdb
-- name: t   # Transform the raw data
+- name: t        # Transform the raw data
   tasks:
   - dbt-duckdb:run
   - dbt-duckdb:test
-- name: elt # Extract, Load, and Transform
+- name: elt      # Extract, Load, and Transform
   tasks:
   - tap-jaffle-shop target-duckdb
   - dbt-duckdb:run
   - dbt-duckdb:test
-- name: bi-dev # Build and launch the Evience.dev dev environment
+- name: bi       # Launch the Evidence BI dev environment
   tasks:
   - evidence:dev
-- name: bi-test # Build BI reports and test for breakages
+- name: bi-build # Build BI reports and test for breakages
   tasks:
   - evidence:build-strict
 
@@ -39,26 +39,26 @@ default_environment: dev
 environments:
 - name: dev
   env:
-    DUCKDB_WAREHOUSE_PATH: ${MELTANO_PROJECT_ROOT}/output/jaffle_shop.${MELTANO_ENVIRONMENT}.duckdb
+    DUCKDB_WAREHOUSE_PATH: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.${MELTANO_ENVIRONMENT}.duckdb
     TAP_JAFFLE_SHOP_YEARS: "1"
-    RAW_SCHEMA_NAME: "raw_jaffle"
+    RAW_SCHEMA_NAME: "tap_jaffle_shop"
 - name: staging
   env:
-    DUCKDB_WAREHOUSE_PATH: ${MELTANO_PROJECT_ROOT}/output/jaffle_shop.${MELTANO_ENVIRONMENT}.duckdb
+    DUCKDB_WAREHOUSE_PATH: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.${MELTANO_ENVIRONMENT}.duckdb
     TAP_JAFFLE_SHOP_YEARS: "3"
-    RAW_SCHEMA_NAME: "raw_jaffle"
+    RAW_SCHEMA_NAME: "tap_jaffle_shop"
 - name: prod
   env:
-    DUCKDB_WAREHOUSE_PATH: ${MELTANO_PROJECT_ROOT}/output/jaffle_shop.${MELTANO_ENVIRONMENT}.duckdb
+    DUCKDB_WAREHOUSE_PATH: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.${MELTANO_ENVIRONMENT}.duckdb
     TAP_JAFFLE_SHOP_YEARS: "5"
-    RAW_SCHEMA_NAME: "raw_jaffle"
+    RAW_SCHEMA_NAME: "tap_jaffle_shop"
 
 plugins:
   extractors:
   - name: tap-jaffle-shop
     namespace: tap_jaffle_shop
     variant: meltanolabs
-    pip_url: git+https://github.com/MeltanoLabs/tap-jaffle-shop.git@v0.1.0
+    pip_url: git+https://github.com/MeltanoLabs/tap-jaffle-shop.git@v0.2.0
     capabilities:
     - catalog
     - discover
@@ -92,7 +92,8 @@ plugins:
       home_dir: ${MELTANO_PROJECT_ROOT}/reports
       settings:
         duckdb:
-          # filename: ${MELTANO_PROJECT_ROOT}
-          filename: output/dw-localdev.duckdb
+          # TODO: Debug abs paths not working in Evidence config
+          # filename: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.${MELTANO_ENVIRONMENT}.duckdb
+          filename: jaffle_shop.${MELTANO_ENVIRONMENT}.duckdb
     commands:
       dev: dev
