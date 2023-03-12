@@ -87,9 +87,6 @@ plugins:
   - name: dbt-duckdb
     variant: jwills
     pip_url: dbt-core~=1.4.5 dbt-duckdb~=1.4.0 git+https://github.com/meltano/dbt-ext.git@v0.1.0
-    env:
-      JAFFLE_DB_NAME: jaffle_shop
-      JAFFLE_RAW_SCHEMA: ${JAFFLE_RAW_SCHEMA}
     config:
       project_dir: ${MELTANO_PROJECT_ROOT}
       profiles_dir: ${MELTANO_PROJECT_ROOT}
