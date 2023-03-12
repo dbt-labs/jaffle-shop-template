@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: ecom
-    schema: "{{ var('jaffle_raw_schema') }}"
+    schema: "{{ env_var('JAFFLE_RAW_SCHEMA', 'jaffle_raw') }}"
     description: E-commerce data
     meta:
       external_location: "read_csv_auto('./jaffle-data/{name}.csv', header=1)"
