@@ -7,7 +7,7 @@ source as (
 
     {# data runs to 2026, truncate timespan to desired range, 
     current time as default #}
-    where opened_at <= {{ var('truncate_timespan_to') }}
+    where cast(opened_at as datetime) <= {{ var('truncate_timespan_to') }}
 
 ),
 
@@ -23,7 +23,7 @@ renamed as (
         tax_rate,
 
         ---------- timestamp
-        opened_at
+        cast(opened_at as datetime) as opened_at
 
     from source
 

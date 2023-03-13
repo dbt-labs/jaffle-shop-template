@@ -2,7 +2,7 @@
 
 ```orders_per_day
 select
-    date_trunc('day', ordered_at) as date,
+    date_trunc('day', cast(ordered_at as datetime)) as date,
     count(*) as orders
 
 from ${orders}
@@ -43,7 +43,7 @@ group by 1
 ```customers_with_cohort
 select
     *,
-    date_trunc('month', first_ordered_at) as cohort_month,
+    date_trunc('month', cast(first_ordered_at as datetime)) as cohort_month,
     lifetime_spend_pretax / count_lifetime_orders as average_order_value
 
 from ${customers}
