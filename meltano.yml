@@ -98,8 +98,7 @@ plugins:
       home_dir: ${MELTANO_PROJECT_ROOT}/reports
       settings:
         duckdb:
-          # TODO: Debug abs paths not working in Evidence config
-          # filename: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.${MELTANO_ENVIRONMENT}.duckdb
-          filename: jaffle_shop.${MELTANO_ENVIRONMENT}.duckdb
+          # filename: ${MELTANO_PROJECT_ROOT}/reports/${JAFFLE_DB_NAME}.${MELTANO_ENVIRONMENT}.duckdb
+          filename: ${JAFFLE_DB_NAME}.${MELTANO_ENVIRONMENT}-duckdb
     commands:
       dev: dev
