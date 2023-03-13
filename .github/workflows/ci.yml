@@ -22,4 +22,5 @@ jobs:
         with:
           python-version: "3.10"
       - run: pipx install meltano
+      - run: meltano install
       - run: meltano run full-build
