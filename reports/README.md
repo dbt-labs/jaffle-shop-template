@@ -13,8 +13,6 @@ npm install
 npm run dev
 ```
 
-
-
 Once you've launched Evidence, this project includes a short tutorial to help you get started.
 
 Don't clone this repo, just download the code using the steps above.
