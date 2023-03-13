@@ -13,4 +13,4 @@ jobs:
       - run: pipx install meltano
       - run: meltano install
       - run: meltano run el
-      - run: meltano invoke dbt:build
+      - run: meltano invoke dbt-duckdb:build
