@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: ecom
-    schema: "{{ var('jaffle_raw_schema') }}"
+    schema: "{{ env_var('JAFFLE_RAW_SCHEMA', 'jaffle_raw') }}"
     description: E-commerce data
     meta:
       # If `$JAFFLE_RAW_SCHEMA` is specified, use the provided raw data. Otherwise, use the csv seed data from the repo.
