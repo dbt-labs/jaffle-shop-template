@@ -2,10 +2,12 @@ version: 2
 
 sources:
   - name: ecom
-    schema: "{{ var('jaffle_raw_schema') }}"
+    schema: "{{ env_var('JAFFLE_RAW_SCHEMA', 'jaffle_raw') }}"
     description: E-commerce data
     meta:
-      external_location: "read_csv_auto('./jaffle-data/{name}.csv', header=1)"
+      # If `$JAFFLE_RAW_SCHEMA` is specified, use the provided raw data. Otherwise, use the csv seed data from the repo.
+      external_location: >-
+        {{ '' if env_var('JAFFLE_RAW_SCHEMA', '') else 'read_csv_auto("./jaffle-data/{name}.csv", header=1)' }}
 
     tables:
       - name: raw_customers
