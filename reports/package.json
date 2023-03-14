@@ -4,7 +4,7 @@
   "scripts": {
     "build": "evidence build",
     "build:strict": "evidence build:strict",
-    "dev": "evidence dev --open",
+    "dev": "evidence dev --host 0.0.0.0 --open",
     "test": "evidence build",
     "help": "evidence --help"
   },
