@@ -34,7 +34,7 @@ group by 1
 
 {#each revenue_per_city as revenue}
 
-[{revenue.city}](/{revenue.city})
+[{revenue.city}](./{revenue.city})
 
 {/each}
 
