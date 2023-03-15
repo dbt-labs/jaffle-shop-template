@@ -8,7 +8,7 @@
     "ghcr.io/eitsupi/devcontainer-features/duckdb-cli:0": {}
   },
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "python -m pip install --user -r requirements.txt && dbt deps",
+  "postCreateCommand": "meltano install",
   // Configure tool-specific properties
   "customizations": {
     "vscode": {
