@@ -1,6 +1,6 @@
 name: CI
 
-on: [pull_request, push]
+on: [pull_request]
 
 jobs:
   e2e-build:
@@ -18,3 +18,8 @@ jobs:
         run: meltano run el
       - name: Transform
         run: meltano invoke dbt-duckdb:build
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1
+        with:
+          path: 'reports/jaffle_shop.dev-duckdb'
+          name: ci-build.duckdb
