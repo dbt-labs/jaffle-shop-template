@@ -11,7 +11,6 @@
 # Repeat the same actions as above on "prod":
 # > meltano --environment=prod run elt evidence:build
 
-project_id: bd6709c7-2d8b-4aba-9697-f6cd61582e74
 version: 1
 
 jobs:
@@ -47,20 +46,20 @@ environments:
   env:
     JAFFLE_DB_PATH: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.${MELTANO_ENVIRONMENT}-duckdb
     JAFFLE_DB_NAME: jaffle_shop
-    JAFFLE_RAW_SCHEMA: "tap_jaffle_shop"
-    TAP_JAFFLE_SHOP_YEARS: "1"
+    JAFFLE_RAW_SCHEMA: tap_jaffle_shop
+    TAP_JAFFLE_SHOP_YEARS: '1'
 - name: staging
   env:
     JAFFLE_DB_PATH: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.${MELTANO_ENVIRONMENT}-duckdb
     JAFFLE_DB_NAME: jaffle_shop
-    JAFFLE_RAW_SCHEMA: "tap_jaffle_shop"
-    TAP_JAFFLE_SHOP_YEARS: "3"
+    JAFFLE_RAW_SCHEMA: tap_jaffle_shop
+    TAP_JAFFLE_SHOP_YEARS: '3'
 - name: prod
   env:
     JAFFLE_DB_PATH: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.${MELTANO_ENVIRONMENT}-duckdb
     JAFFLE_DB_NAME: jaffle_shop
-    JAFFLE_RAW_SCHEMA: "tap_jaffle_shop"
-    TAP_JAFFLE_SHOP_YEARS: "5"
+    JAFFLE_RAW_SCHEMA: tap_jaffle_shop
+    TAP_JAFFLE_SHOP_YEARS: '5'
 
 plugins:
   extractors:
@@ -94,11 +93,12 @@ plugins:
   - name: evidence
     variant: meltanolabs
     pip_url: evidence-ext>=0.5
+    commands:
+      dev: dev
     config:
       home_dir: ${MELTANO_PROJECT_ROOT}/reports
       settings:
         duckdb:
           # filename: ${MELTANO_PROJECT_ROOT}/reports/${JAFFLE_DB_NAME}.${MELTANO_ENVIRONMENT}.duckdb
           filename: ${JAFFLE_DB_NAME}.${MELTANO_ENVIRONMENT}-duckdb
-    commands:
-      dev: dev
+project_id: ff061732-bd27-4021-916f-e8f8b55fcf9d

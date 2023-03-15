@@ -37,6 +37,9 @@
 		"cschleiden.vscode-github-actions"
 	]
     }
+  },
+  "containerEnv": {
+	"MELTANO_CLIENT_ID": "bd6709c7-2d8b-4aba-9697-f6cd61582e74" // Unique ID for Jaffle Shop Template
   }
 }
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
