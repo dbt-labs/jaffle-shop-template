@@ -1,6 +1,3 @@
 {
-  "recommendations": [
-    "innoverio.vscode-dbt-power-user",
-    "cschleiden.vscode-github-actions"
-  ]
+  "recommendations": ["ms-python.python", "innoverio.vscode-dbt-power-user"]
 }
