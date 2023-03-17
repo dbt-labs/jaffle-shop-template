@@ -7,7 +7,7 @@
     "ghcr.io/eitsupi/devcontainer-features/duckdb-cli:0": {}
   },
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "python -m venv .venv && . .venv/bin/activate && python -m pip install -r requirements.txt && dbt deps && npm --prefix ./reports install",
+  "postCreateCommand": "python -m pip install -r requirements.txt && dbt deps && npm --prefix ./reports install",
   "remoteEnv": {
     "DATABASE": "duckdb",
     "FILENAME": "jaffle_shop.duckdb"
