@@ -4,7 +4,7 @@
   "scripts": {
     "build": "evidence build",
     "build:strict": "evidence build:strict",
-    "dev": "evidence dev --open",
+    "dev": "evidence dev --host 0.0.0.0 --open /",
     "test": "evidence build",
     "help": "evidence --help"
   },
@@ -14,6 +14,8 @@
   },
   "type": "module",
   "dependencies": {
-    "@evidence-dev/evidence": "^14.0.0"
+    "@evidence-dev/components": "^2.2.0",
+    "@evidence-dev/evidence": "^15.0.0",
+    "@evidence-dev/preprocess": "^2.2.0"
   }
 }

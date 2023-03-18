@@ -36,7 +36,7 @@ jobs:
         run: meltano run elt
       - name: Build Reports
         # TODO: use `build-strict` once available
-        run: meltano invoke evidence:build
+        run: meltano invoke evidence:build-strict
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:

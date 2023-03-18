@@ -38,7 +38,7 @@ jobs:
   - tap-jaffle-shop target-duckdb
   - dbt-duckdb:run
   - dbt-duckdb:test
-  - evidence:build
+  - evidence:build-strict
 
 default_environment: dev
 environments:

@@ -18,8 +18,16 @@ jobs:
         run: meltano run el
       - name: Transform
         run: meltano invoke dbt-duckdb:build
-      - name: Upload artifact
+      - name: Upload DuckDB database artifact
         uses: actions/upload-artifact@v1
+        if: always()
         with:
           path: 'reports/jaffle_shop.dev-duckdb'
+          name: ci-build.duckdb
+      - name: Build BI reports
+        run: meltano invoke evidence:build-strict
+      - name: Upload BI reports artifact
+        uses: actions/upload-artifact@v1
+        with:
+          path: 'reports/build'
           name: ci-build.duckdb
