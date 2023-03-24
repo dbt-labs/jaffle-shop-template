@@ -6,17 +6,9 @@
   "sqlfluff.executablePath": ".venv/bin/sqlfluff",
   "python.defaultInterpreterPath": ".venv/bin/python",
   "sqlfluff.experimental.format.executeInTerminal": true,
+
   "[jinja-sql]": {
     "editor.defaultFormatter": "dorzey.vscode-sqlfluff",
     "editor.formatOnSave": false
-  },
-  "sqltools.useNodeRuntime": true,
-  "sqltools.connections": [
-    {
-      "previewLimit": 50,
-      "driver": "DuckDB",
-      "name": "jaffle_shop",
-      "database": "${workspaceFolder:jaffle-shop-template}/reports/jaffle_shop.duckdb"
-    }
-  ]
+  }
 }

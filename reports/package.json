@@ -4,15 +4,16 @@
   "scripts": {
     "build": "evidence build",
     "build:strict": "evidence build:strict",
-    "dev": "evidence dev -o",
-    "test": "evidence build"
+    "dev": "evidence dev --host 0.0.0.0 --open /",
+    "test": "evidence build",
+    "help": "evidence --help"
   },
   "engines": {
     "npm": ">=7.0.0",
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "type": "module",
   "dependencies": {
-    "@evidence-dev/evidence": "^12.0.1"
+    "@evidence-dev/evidence": "^14.0.0"
   }
 }
