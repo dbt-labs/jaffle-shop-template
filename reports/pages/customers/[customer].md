@@ -1,14 +1,5 @@
 # {$page.params.customer}'s Customer Profile
 
-```orders
-select 
-    a.*, 
-    b.customer_name 
-from analytics.orders a
-left join analytics.customers b
-on a.customer_id = b.customer_id
-```
-
 ```customers
 select 
     *,
@@ -28,10 +19,12 @@ from analytics.customers
 
 ```monthly_purchases
 select
-    date_trunc('month', ordered_at) as month,
-    customer_name,
-    sum(order_total) as purchases_usd
-from ${orders}
+    date_trunc('month', a.ordered_at) as month,
+    b.customer_name,
+    sum(a.order_total) as purchases_usd
+from analytics.orders a
+left join analytics.customers b
+on a.customer_id = b.customer_id
 group by month, customer_name
 order by month asc
 ```
