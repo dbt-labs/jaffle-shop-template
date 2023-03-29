@@ -3,38 +3,23 @@
 # One-time workstation setup:
 # > meltano install  # Install the plugins declared by the project
 #
-# Sample usage for end-to-end development:
-# > meltano run el                              # Run the named job titled 'el' to extract and load data
-# > meltano run tap-jaffle-shop target-duckdb   # Same as above
+# Sample usage for extract and load:
+# > meltano run tap-jaffle-shop target-duckdb
 #
-# Repeat the same actions as above on "prod":
-# > meltano --environment=prod run el evidence:build
+# Or, equivalently:
+# > meltano run el  # Run the job named 'el' to extract and load data
 
 version: 1
 project_id: bd6709c7-2d8b-4aba-9697-f6cd61582e74  # Unique ID for Jaffle Shop Template
-jobs:
-  # Sample usage:  `meltano run el`
-  # Equivalent to: `meltano run tap-jaffle-shop target-duckdb`
-- name: el         # Extract and load the raw data
-  tasks:
-  - tap-jaffle-shop target-duckdb
 
-default_environment: dev
 env:
   JAFFLE_DB_NAME: jaffle_shop
   JAFFLE_RAW_SCHEMA: tap_jaffle_shop
+  JAFFLE_DB_PATH: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.duckdb
+
+default_environment: dev
 environments:
 - name: dev
-  env:
-    JAFFLE_DB_PATH: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.duckdb
-- name: staging
-  env:
-    TAP_JAFFLE_SHOP_YEARS: '3'
-    JAFFLE_DB_PATH: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.${MELTANO_ENVIRONMENT}-duckdb
-- name: prod
-  env:
-    TAP_JAFFLE_SHOP_YEARS: '5'
-    JAFFLE_DB_PATH: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.${MELTANO_ENVIRONMENT}-duckdb
 
 plugins:
   extractors:
@@ -54,3 +39,10 @@ plugins:
     pip_url: target-duckdb~=0.4
     config:
       filepath: ${JAFFLE_DB_PATH}
+
+jobs:
+  # Sample usage:  `meltano run el`
+  # Equivalent to: `meltano run tap-jaffle-shop target-duckdb`
+- name: el         # Extract and load the raw data
+  tasks:
+  - tap-jaffle-shop target-duckdb
