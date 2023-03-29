@@ -10,7 +10,6 @@
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "python -m pip install -r requirements.txt && dbt deps && npm --prefix ./reports install && meltano install",
   "remoteEnv": {
-    // variables for VS Code and related sub-processes (terminals, tasks, debugging, etc.):
     "DATABASE": "duckdb",
     "FILENAME": "jaffle_shop.duckdb"
   },
