@@ -4,12 +4,11 @@
 # > meltano install  # Install the plugins declared by the project
 #
 # Sample usage for end-to-end development:
-# > meltano run el    # Run the job titled 'el' to extract and load data
-# > meltano run t     # Run the job titled 't' to transform data
-# > meltano run bi    # Build and serve the Evidence BI reports
+# > meltano run el                              # Run the named job titled 'el' to extract and load data
+# > meltano run tap-jaffle-shop target-duckdb   # Same as above
 #
 # Repeat the same actions as above on "prod":
-# > meltano --environment=prod run elt evidence:build
+# > meltano --environment=prod run el evidence:build
 
 version: 1
 project_id: bd6709c7-2d8b-4aba-9697-f6cd61582e74  # Unique ID for Jaffle Shop Template
@@ -27,7 +26,6 @@ env:
 environments:
 - name: dev
   env:
-    TAP_JAFFLE_SHOP_YEARS: '1'
     JAFFLE_DB_PATH: ${MELTANO_PROJECT_ROOT}/reports/jaffle_shop.duckdb
 - name: staging
   env:
