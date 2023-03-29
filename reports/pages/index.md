@@ -116,8 +116,6 @@ Click a row to see the report for that store:
 ## Seasonality
 See [Seasonality Investigation](/analysis/seasonality-investigation) for more information.
 
-[{revenue.city}](./{revenue.city})
-
 ## Customers
 To see individual customer purchase history, see [Customers](/customers)
 
