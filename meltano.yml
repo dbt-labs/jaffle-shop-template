@@ -12,7 +12,7 @@ project_id: bd6709c7-2d8b-4aba-9697-f6cd61582e74  # Unique ID for Jaffle Shop Te
 env:
   JAFFLE_DB_PATH: ./reports/jaffle_shop.duckdb
   JAFFLE_DB_NAME: jaffle_shop
-  JAFFLE_RAW_SCHEMA: tap_jaffle_shop
+  JAFFLE_RAW_SCHEMA: jaffle_raw
 
 default_environment: dev
 environments:
