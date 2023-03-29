@@ -2,7 +2,6 @@
     config(
         materialized='table'
     )
-
 }}
 
 with
@@ -14,6 +13,7 @@ customers as (
 ),
 
 orders_mart as (
+
     select * from {{ ref('orders') }}
 
 ),
