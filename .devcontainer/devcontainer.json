@@ -9,6 +9,11 @@
   },
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "meltano install",
+  "remoteEnv": {
+    // variables for VS Code and related sub-processes (terminals, tasks, debugging, etc.):
+    "DATABASE": "duckdb",
+    "FILENAME": "jaffle_shop.duckdb"
+  },
   // Configure tool-specific properties
   "customizations": {
     "vscode": {
@@ -16,26 +21,25 @@
         "terminal.integrated.defaultProfile.linux": "zsh"
       },
       "extensions": [
-		"GitHub.codespaces",
-		"GitHub.vscode-pull-request-github",
-		"esbenp.prettier-vscode",
-		"ms-python.python",
-		"ms-python.vscode-pylance",
-		"ms-python.black-formatter",
-		"ms-python.isort",
-		"charliermarsh.ruff",
-		"redhat.vscode-yaml",
-		"samuelcolvin.jinjahtml",
-		"bungcip.better-toml",
-		"tamasfe.even-better-toml",
-		"dorzey.vscode-sqlfluff",
-		"mechatroner.rainbow-csv",
-		"evidence.evidence-vscode",
-		"svelte.svelte-vscode",
-		"bastienboutonnet.vscode-dbt",
-		"innoverio.vscode-dbt-power-user",
-		"cschleiden.vscode-github-actions"
-	]
+        "GitHub.codespaces",
+        "GitHub.vscode-pull-request-github",
+        "cschleiden.vscode-github-actions",
+        "esbenp.prettier-vscode",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "charliermarsh.ruff",
+        "redhat.vscode-yaml",
+        "samuelcolvin.jinjahtml",
+        "bungcip.better-toml",
+        "tamasfe.even-better-toml",
+        "dorzey.vscode-sqlfluff",
+        "mechatroner.rainbow-csv",
+        "evidence.evidence-vscode",
+        "svelte.svelte-vscode",
+        "bastienboutonnet.vscode-dbt"
+      ]
     }
   },
   "containerEnv": {

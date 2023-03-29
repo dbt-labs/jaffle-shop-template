@@ -1,39 +1,9 @@
 [sqlfluff]
-dialect = sqlite
+dialect = duckdb
 templater = dbt
 runaway_limit = 10
 max_line_length = 80
 indent_unit = space
-# rules = L002, L004, L005, L010, L011, L012, L013, L014, L016, L018, L019, L022, L023, L027, L030, L031, L032, L033, L034, L040, L046, L048, L042, L051, L054, L065
-# exclude_rules
-
-# Rule definitions:
-# L002: Mixed Tabs and Spaces in single whitespace
-# L004: Incorrect indentation type (should be space)
-# L004: Commas should not have whitespace directly before them.
-# L010: Inconsistent capitalisation of keywords (should be lowercase)
-# L011: Implicit/explicit aliasing of table (use 'as' for alias)
-# L012: Implicit/explicit aliasing of columns (use 'as' for alias)
-# L013: Column expression without alias (use 'as' for alias)
-# L014: Inconsistent capitalisation of unquoted identifiers (should be lowercase)
-# L016: Line is too long
-# L018: WITH clause closing bracket should be on a new line.
-# L019: Trailing comma enforcement
-# L022: Blank line expected but not found after CTE closing bracket.
-# L023: Single whitespace expected after AS in WITH clause.
-# L027: References should be qualified if select has more than one referenced table/view
-# L030: Inconsistent capitalisation of function names (should be lowercase)
-# L031: Avoid table aliases in from clauses and join conditions
-# L032: Prefer specifying join keys instead of using USING.
-# L033: UNION [DISTINCT|ALL] is preferred over just UNION
-# L034: Select wildcards then simple targets before calculations and aggregates
-# L040: Inconsistent capitalisation of boolean/null literal (should be lowercase)
-# L042: Join/From clauses should not contain subqueries. Use CTEs instead.
-# L046: Jinja tags should have a single whitespace on either side.
-# L048: Quoted literals should be surrounded by a single whitespace.
-# L051: Join clauses should be fully qualified (LEFT/RIGHT/FULL/INNER)
-# L054: Use numbers in GROUP BY and ORDER BY
-# L065: Set operators should be surrounded by newlines.
 
 [sqlfluff:indentation]
 tab_space_size = 4
@@ -42,26 +12,26 @@ tab_space_size = 4
 spacing_before = touch
 line_position = trailing
 
-[sqlfluff:rules:L010]  # Keywords
+[sqlfluff:rules:capitalisation.keywords] 
 capitalisation_policy = lower
 
-[sqlfluff:rules:L011]  # Explicit table alias
+[sqlfluff:rules:aliasing.table]
 aliasing = explicit
 
-[sqlfluff:rules:L012]  # Explicit column alias
+[sqlfluff:rules:aliasing.column]
 aliasing = explicit
 
-[sqlfluff:rules:L013]  # Column expressions must have alias
+[sqlfluff:rules:aliasing.expression]
 allow_scalar = False
 
-[sqlfluff:rules:L014]  # Unquoted identifiers
+[sqlfluff:rules:capitalisation.identifiers]
 extended_capitalisation_policy = lower
 
-[sqlfluff:rules:L030]  # Function names
+[sqlfluff:rules:capitalisation.functions]
 capitalisation_policy = lower
 
-[sqlfluff:rules:L040]  # Boolean names
+[sqlfluff:rules:capitalisation.literals]
 capitalisation_policy = lower
 
-[sqlfluff:rules:L054]  # Number in group by
+[sqlfluff:rules:ambiguous.column_references]  # Number in group by
 group_by_and_order_by_style = implicit
