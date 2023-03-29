@@ -36,6 +36,7 @@ plugins:
     pip_url: target-duckdb~=0.4
     config:
       filepath: ${JAFFLE_DB_PATH}
+      default_target_schema: $JAFFLE_RAW_SCHEMA
 
 jobs:
   # Sample usage:  `meltano run el`
