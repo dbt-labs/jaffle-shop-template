@@ -1,12 +1,9 @@
 # Meltano Configuration File
-# 
-# One-time workstation setup:
-# > meltano install  # Install the plugins declared by the project
 #
-# Sample usage for extract and load:
+# Sample usage:
 # > meltano run tap-jaffle-shop target-duckdb
 #
-# Or, equivalently:
+# Or equivalently:
 # > meltano run el  # Run the job named 'el' to extract and load data
 
 version: 1
