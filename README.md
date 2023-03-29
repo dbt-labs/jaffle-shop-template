@@ -22,34 +22,26 @@ This will create a new `codespace`, a sandboxed devcontainer with everything you
 
 After the container is built and connected to, VSCode will run a few clean up commands and then a `postCreateCommand`, a set of commands run after the container is set up. This is where we install our dependencies, such as dbt, the duckdb adapter, and other necessities, as well as run `dbt deps` to install the dbt packages we want to use. That screen will look something like the above, when its completed it will close and leave you in a fresh terminal prompt. From there you're ready to do some analytics engineering!
 
-## Using with Meltano
+## Run EL (Extract and Load) using Meltano
 
-This project is preconfigured with a Meltano configuration file, `meltano.yml`. Meltano can be used as follows:
-
-One-time workstation setup:
+This project is preconfigured with Meltano, which can be used to extract and load raw data into DuckDB:
 
 ```console
-> meltano install  # Install the plugins declared by the project
+meltano run tap-jaffle-shop target-duckdb
 ```
 
-Sample usage for end-to-end development:
+Optionally, you can modify extract parameters using environment variables. For instance, this modified version will extract five years of data instead of the default 1 year.
 
 ```console
-> meltano run el    # Run the job titled 'el' to extract and load data
-> meltano run t     # Run the job titled 't' to transform data
-> meltano run bi    # Build and serve the Evidence BI reports
+TAP_JAFFLE_SHOP_YEARS=5
+meltano run tap-jaffle-shop target-duckdb
 ```
 
-Dynamically Build and serve the Evidence BI reports:
-
-```
-meltano invoke evidence:dev    # 
-```
-
-Do a full end-to-end build on "prod":
+You can also modify any tap or target config with the interactive `config` command:
 
 ```console
-> meltano --environment=prod run elt evidence:build
+meltano config tap-jaffle-shop set --interactive
+meltano config target-duckdb set --interactive
 ```
 
 ## Contributing
