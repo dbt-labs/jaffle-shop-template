@@ -23,6 +23,7 @@
         "GitHub.vscode-pull-request-github",
         "cschleiden.vscode-github-actions",
         "esbenp.prettier-vscode",
+        "ms-python.python",
         "ms-python.vscode-pylance",
         "ms-python.black-formatter",
         "ms-python.isort",

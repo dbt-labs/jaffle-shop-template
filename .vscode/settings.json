@@ -1,6 +1,4 @@
 {
-  "dbt.queryLimit": 100,
-  "dbt.profilesDirOverride": ".",
   "python.analysis.typeCheckingMode": "basic",
   "sqlfluff.dialect": "duckdb",
   "sqlfluff.experimental.format.executeInTerminal": true,
