@@ -8,7 +8,7 @@
     "ghcr.io/eitsupi/devcontainer-features/duckdb-cli:0": {}
   },
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "meltano install",
+  "postCreateCommand": "python -m pip install -r requirements.txt && dbt deps && npm --prefix ./reports install && meltano install",
   "remoteEnv": {
     // variables for VS Code and related sub-processes (terminals, tasks, debugging, etc.):
     "DATABASE": "duckdb",
@@ -41,9 +41,6 @@
         "bastienboutonnet.vscode-dbt"
       ]
     }
-  },
-  "containerEnv": {
-	"MELTANO_CLIENT_ID": "bd6709c7-2d8b-4aba-9697-f6cd61582e74" // Unique ID for Jaffle Shop Template
   }
 }
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
