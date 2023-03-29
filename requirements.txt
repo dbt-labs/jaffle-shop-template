@@ -1,6 +1,7 @@
 dbt-duckdb~=1.4.0
 duckcli~=0.2.1
 jafgen~=0.3.1
+meltano~=2.17.0
 pandas~=1.5.2
 polars~=0.16.9
 pre-commit~=3.0.4
