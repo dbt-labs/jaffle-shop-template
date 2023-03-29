@@ -6,4 +6,3 @@ logs/
 *.duckdb.wal
 reports/sources/*.csv
 .meltano
-output
