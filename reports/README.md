@@ -8,7 +8,6 @@ Run the BI server from your local workstation:
 
 ```shell
 cd reports
-npm install
 npm run dev
 ```
 
