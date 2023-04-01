@@ -7,7 +7,7 @@
 # > meltano run el  # Run the job named 'el' to extract and load data
 
 version: 1
-project_id: bd6709c7-2d8b-4aba-9697-f6cd61582e74  # Unique ID for Jaffle Shop Template
+project_id: Jaffle Shop Template Project
 
 env:
   JAFFLE_DB_PATH: ./reports/jaffle_shop.duckdb
