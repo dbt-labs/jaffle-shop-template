@@ -18,7 +18,7 @@ default_environment: dev
 environments:
 - name: dev
 
-plugins: 
+plugins:
   extractors:
   - name: tap-jaffle-shop
     namespace: tap_jaffle_shop
