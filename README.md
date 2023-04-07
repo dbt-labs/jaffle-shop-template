@@ -27,7 +27,7 @@ After the container is built and connected to, VSCode will run a few clean up co
 This template includes two additional tools for the other parts of the stack to create a more realistic experience:
 
 - BI reporting built with [Evidence](https://evidence.dev) - an open source, code-based BI tool to write reports with markdown and SQL. 
-- EL with Meltano
+- EL with [Meltano](https://meltano.com/) - an open source tool that provides a CLI & version control for ELT pipelines.
 
 ### Evidence 
 
@@ -49,12 +49,37 @@ See the [Evidence CLI docs](https://docs.evidence.dev/cli) for more details.
 
 You can make changes to the markdown pages in the `reports/pages` folder and see the reports update in the browser preview.
 
-#### Learning More
+#### Learning More about Evidence
 
 - [Getting Started Walkthrough](https://docs.evidence.dev/getting-started/install-evidence)
 - [Project Home Page](https://www.evidence.dev)
 - [Github](https://github.com/evidence-dev/evidence)
 - [Evidence.dev Releases](https://github.com/evidence-dev/evidence/releases)
+
+
+### Meltano
+
+This project is preconfigured with Meltano, which can be used to extract and load raw data into DuckDB.
+
+#### Run EL (Extract and Load) using Meltano
+
+```console
+meltano run tap-jaffle-shop target-duckdb
+```
+
+Optionally, you can modify extract parameters using environment variables. For instance, this modified version will extract five years of data instead of the default 1 year.
+
+```console
+TAP_JAFFLE_SHOP_YEARS=5
+meltano run tap-jaffle-shop target-duckdb
+```
+
+You can also modify any tap or target config with the interactive `config` command:
+
+```console
+meltano config tap-jaffle-shop set --interactive
+meltano config target-duckdb set --interactive
+```
 
 ## Contributing
 

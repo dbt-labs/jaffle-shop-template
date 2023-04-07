@@ -5,3 +5,4 @@ logs/
 *.duckdb
 *.duckdb.wal
 reports/sources/*.csv
+.meltano
