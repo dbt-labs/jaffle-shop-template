@@ -7,4 +7,3 @@ pre-commit~=3.0.4
 pyarrow~=11.0.0
 sqlfluff-templater-dbt~=2.0.0a5
 sqlfluff~=2.0.0a5
-meltano~=2.18.0
