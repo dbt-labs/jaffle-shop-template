@@ -5,7 +5,7 @@
     "ghcr.io/devcontainers-contrib/features/black:1": {},
     "ghcr.io/devcontainers-contrib/features/meltano": {},
     "ghcr.io/devcontainers/features/node:1": {},
-    "ghcr.io/eitsupi/devcontainer-features/duckdb-cli:0": {}
+    "ghcr.io/eitsupi/devcontainer-features/duckdb-cli:1": {}
   },
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "python -m pip install -r requirements.txt && dbt deps && npm --prefix ./reports install && meltano install && meltano run el",
