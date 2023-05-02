@@ -83,7 +83,7 @@ meltano config target-duckdb set --interactive
 
 ## Local development
 
-This project is optimized for running in a container. If you'd like to use it locally you'll need to follow the instructions below.
+This project is optimized for running in a container. If you'd like to use it locally outside of container you'll need to follow the instructions below.
 
 1. Create a python virtual environment and install the dependencies.
 
