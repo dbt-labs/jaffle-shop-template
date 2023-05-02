@@ -14,9 +14,9 @@
   },
   "type": "module",
   "dependencies": {
-    "@evidence-dev/evidence": "15.0.1",
-    "@evidence-dev/preprocess": "2.2.0",
-    "@evidence-dev/components": "2.2.1"
+    "@evidence-dev/evidence": "16.0.2",
+    "@evidence-dev/preprocess": "2.3.2",
+    "@evidence-dev/components": "2.3.2"
   },
   "overrides": {
     "jsonwebtoken": "9.0.0",
