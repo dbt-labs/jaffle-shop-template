@@ -1,6 +1,6 @@
 {
   "name": "Python 3",
-  "image": "mcr.microsoft.com/devcontainers/python:3.10",
+  "image": "mcr.microsoft.com/devcontainers/python:0-3.10-bullseye",
   "features": {
     "ghcr.io/devcontainers-contrib/features/black:1": {},
     "ghcr.io/devcontainers-contrib/features/meltano": {},
@@ -8,7 +8,7 @@
     "ghcr.io/eitsupi/devcontainer-features/duckdb-cli:1": {}
   },
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "python -m pip install -r requirements.txt && dbt deps && npm --prefix ./reports install && meltano install && meltano run el",
+  "postCreateCommand": "python -m pip install --progress-bar off -r requirements.txt && dbt deps",
   "remoteEnv": {
     "DATABASE": "duckdb",
     "FILENAME": "jaffle_shop.duckdb"
@@ -18,27 +18,27 @@
     "vscode": {
       "settings": {
         "terminal.integrated.defaultProfile.linux": "zsh"
-      },
-      "extensions": [
-        "GitHub.codespaces",
-        "GitHub.vscode-pull-request-github",
-        "cschleiden.vscode-github-actions",
-        "esbenp.prettier-vscode",
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "ms-python.black-formatter",
-        "ms-python.isort",
-        "charliermarsh.ruff",
-        "redhat.vscode-yaml",
-        "samuelcolvin.jinjahtml",
-        "bungcip.better-toml",
-        "tamasfe.even-better-toml",
-        "dorzey.vscode-sqlfluff",
-        "mechatroner.rainbow-csv",
-        "evidence.evidence-vscode",
-        "svelte.svelte-vscode",
-        "bastienboutonnet.vscode-dbt"
-      ]
+      }
+      // "extensions": [
+      //   "GitHub.codespaces",
+      //   "GitHub.vscode-pull-request-github",
+      //   "cschleiden.vscode-github-actions",
+      //   "esbenp.prettier-vscode",
+      //   "ms-python.python",
+      //   "ms-python.vscode-pylance",
+      //   "ms-python.black-formatter",
+      //   "ms-python.isort",
+      //   "charliermarsh.ruff",
+      //   "redhat.vscode-yaml",
+      //   "samuelcolvin.jinjahtml",
+      //   "bungcip.better-toml",
+      //   "tamasfe.even-better-toml",
+      //   "dorzey.vscode-sqlfluff",
+      //   "mechatroner.rainbow-csv",
+      //   "evidence.evidence-vscode",
+      //   "svelte.svelte-vscode",
+      //   "bastienboutonnet.vscode-dbt"
+      // ]
     }
   }
 }
