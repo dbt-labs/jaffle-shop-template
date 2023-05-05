@@ -97,7 +97,7 @@ pip install -r requirements.txt
 
 ```console
 pipx install meltano
-melatno install
+meltano install
 ```
 
 3. Run the EL pipeline.
