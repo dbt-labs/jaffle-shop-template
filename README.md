@@ -26,12 +26,13 @@ After the container is built and connected to, VSCode will run a few clean up co
 
 This template includes two additional tools for the other parts of the stack to create a more realistic experience:
 
-- BI reporting built with [Evidence](https://evidence.dev) - an open source, code-based BI tool to write reports with markdown and SQL. 
+- BI reporting built with [Evidence](https://evidence.dev) - an open source, code-based BI tool to write reports with markdown and SQL.
 - EL with [Meltano](https://meltano.com/) - an open source tool that provides a CLI & version control for ELT pipelines.
 
-### Evidence 
+### Evidence
 
 With Evidence you can:
+
 - Version control your BI layer
 - Build reports in the same repo as your dbt project
 - Deploy your reports to a static site
@@ -56,7 +57,6 @@ You can make changes to the markdown pages in the `reports/pages` folder and see
 - [Github](https://github.com/evidence-dev/evidence)
 - [Evidence.dev Releases](https://github.com/evidence-dev/evidence/releases)
 
-
 ### Meltano
 
 This project is preconfigured with Meltano, which can be used to extract and load raw data into DuckDB.
@@ -79,6 +79,46 @@ You can also modify any tap or target config with the interactive `config` comma
 ```console
 meltano config tap-jaffle-shop set --interactive
 meltano config target-duckdb set --interactive
+```
+
+## Local development
+
+This project is optimized for running in a container. If you'd like to use it locally outside of container you'll need to follow the instructions below.
+
+1. Create a python virtual environment and install the dependencies.
+
+```console
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+2. Install meltano with [pipx](https://pypa.github.io/pipx/installation/). And install meltano's dependencies.
+
+```console
+pipx install meltano
+meltano install
+```
+
+3. Run the EL pipeline.
+
+```console
+meltano run el
+```
+
+4. Install dbt dependencies and build the dbt project.
+
+```console
+dbt deps
+dbt build
+```
+
+5. Install Evidence dependencies and run the Evidence server.
+
+```console
+cd reports
+npm install
+npm run dev
 ```
 
 ## Contributing
