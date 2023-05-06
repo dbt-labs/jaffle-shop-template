@@ -16,31 +16,31 @@ env:
 
 default_environment: dev
 environments:
-- name: dev
+  - name: dev
 
 plugins:
   extractors:
-  - name: tap-jaffle-shop
-    namespace: tap_jaffle_shop
-    variant: meltanolabs
-    pip_url: git+https://github.com/MeltanoLabs/tap-jaffle-shop.git@v0.3.0
-    capabilities:
-    - catalog
-    - discover
-    config:
-      years: 1
-      stream_name_prefix: ${JAFFLE_RAW_SCHEMA}-raw_
+    - name: tap-jaffle-shop
+      namespace: tap_jaffle_shop
+      variant: meltanolabs
+      pip_url: git+https://github.com/MeltanoLabs/tap-jaffle-shop.git@v0.3.0
+      capabilities:
+        - catalog
+        - discover
+      config:
+        years: 2
+        stream_name_prefix: ${JAFFLE_RAW_SCHEMA}-raw_
   loaders:
-  - name: target-duckdb
-    variant: jwills
-    pip_url: target-duckdb~=0.4
-    config:
-      filepath: ${JAFFLE_DB_PATH}
-      default_target_schema: $JAFFLE_RAW_SCHEMA
+    - name: target-duckdb
+      variant: jwills
+      pip_url: target-duckdb~=0.4
+      config:
+        filepath: ${JAFFLE_DB_PATH}
+        default_target_schema: $JAFFLE_RAW_SCHEMA
 
 jobs:
   # Sample usage:  `meltano run el`
   # Equivalent to: `meltano run tap-jaffle-shop target-duckdb`
-- name: el         # Extract and load the raw data
-  tasks:
-  - tap-jaffle-shop target-duckdb
+  - name: el # Extract and load the raw data
+    tasks:
+      - tap-jaffle-shop target-duckdb

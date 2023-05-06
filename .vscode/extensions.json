@@ -1,0 +1,19 @@
+{
+  "recommendations": [
+    "GitHub.vscode-pull-request-github",
+    "cschleiden.vscode-github-actions",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.black-formatter",
+    "ms-python.isort",
+    "charliermarsh.ruff",
+    "redhat.vscode-yaml",
+    "samuelcolvin.jinjahtml",
+    "bungcip.better-toml",
+    "tamasfe.even-better-toml",
+    "mechatroner.rainbow-csv",
+    "evidence.evidence-vscode",
+    "svelte.svelte-vscode",
+    "bastienboutonnet.vscode-dbt"
+  ]
+}
