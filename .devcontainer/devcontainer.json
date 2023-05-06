@@ -9,7 +9,7 @@
     "ghcr.io/eitsupi/devcontainer-features/go-task:1": {}
   },
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "python -m pip install --progress-bar off -r requirements.txt && dbt deps",
+  "postCreateCommand": "task deps",
   "remoteEnv": {
     "DATABASE": "duckdb",
     "FILENAME": "jaffle_shop.duckdb"
@@ -19,27 +19,12 @@
     "vscode": {
       "settings": {
         "terminal.integrated.defaultProfile.linux": "zsh"
-      }
-      // "extensions": [
-      //   "GitHub.codespaces",
-      //   "GitHub.vscode-pull-request-github",
-      //   "cschleiden.vscode-github-actions",
-      //   "esbenp.prettier-vscode",
-      //   "ms-python.python",
-      //   "ms-python.vscode-pylance",
-      //   "ms-python.black-formatter",
-      //   "ms-python.isort",
-      //   "charliermarsh.ruff",
-      //   "redhat.vscode-yaml",
-      //   "samuelcolvin.jinjahtml",
-      //   "bungcip.better-toml",
-      //   "tamasfe.even-better-toml",
-      //   "dorzey.vscode-sqlfluff",
-      //   "mechatroner.rainbow-csv",
-      //   "evidence.evidence-vscode",
-      //   "svelte.svelte-vscode",
-      //   "bastienboutonnet.vscode-dbt"
-      // ]
+      },
+      "extensions": [
+        "dorzey.vscode-sqlfluff",
+        "esbenp.prettier-vscode",
+        "GitHub.codespaces"
+      ]
     }
   }
 }
