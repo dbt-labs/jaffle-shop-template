@@ -66,6 +66,8 @@ This project is preconfigured with Meltano, which can be used to extract and loa
 #### Run EL (Extract and Load) using Meltano
 
 ```console
+meltano install extractor tap-jaffle-shop
+meltano install loader target-duckdb
 meltano run tap-jaffle-shop target-duckdb
 ```
 
